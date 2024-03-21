@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CARS</title>
+</head>
+<body>
+<form th:action="@{'/addCar'}" method="post">
+    NAME: <input type="text" name="name">
+    MODEL: <input type="text" name="model">
+    PRICE: <input type="text" name="price">
+    <button>ADD CAR</button>
+</form>
+<br><br>
+    <table cellpadding="15">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>MODEL</th>
+                <th>PRICE</th>
+                <th>DETAILS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="car : ${cars}">
+                <td th:text="${car.getId()}"></td>
+                <td th:text="${car.getName()}"></td>
+                <td th:text="${car.getModel()}"></td>
+                <td th:text="${car.getPrice()}"></td>
+                <td>
+                    <a th:href="@{'/details/'+${car.getId()}}">DETAILS</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

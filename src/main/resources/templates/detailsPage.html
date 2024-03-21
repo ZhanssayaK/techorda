@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+
+<form th:action="@{'/updateCar/'+${onecar.getId()}}" method="post">
+    NAME: <input type="text" name="name" th:value="${onecar.getName()}">
+    MODEL: <input type="text" name="model" th:value="${onecar.getModel()}">
+    PRICE: <input type="text" name="price" th:value="${onecar.getPrice()}">
+    <button>UPDATE</button>
+</form>
+<br><br>
+<form th:action="@{'/deleteCar/'+${onecar.getId()}}" method="post">
+    <button>DELETE</button>
+</form>
+<br>
+<a th:href="@{'/home'}">HOME <------</a>
+</body>
+</html>
